@@ -1,4 +1,9 @@
-FROM registry.access.redhat.com/ubi9/python-312@sha256:95ec8d3ee9f875da011639213fd254256c29bc58861ac0b11f290a291fa04435
+# Defaults for ODH:
+ARG BASE_IMAGE=registry.access.redhat.com/ubi9/python-312@sha256:95ec8d3ee9f875da011639213fd254256c29bc58861ac0b11f290a291fa04435
+ARG EXTRA_INDEX_URL_PYTORCH_ORG="--extra-index-url https://download.pytorch.org/whl/cpu"
+ARG ODH_GITHUB_URL=git+https://github.com/opendatahub-io/llama-stack.git@
+
+FROM $BASE_IMAGE
 WORKDIR /opt/app-root
 
 RUN pip install uv
